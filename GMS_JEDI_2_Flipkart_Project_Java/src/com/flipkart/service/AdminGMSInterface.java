@@ -1,18 +1,15 @@
 package com.flipkart.service;
 
 
-interface AdminGMSInterface {
-	
-	public static void seePendingRequest() {
-		
-	}
-	
-	public static boolean approveRequest(String requestId) {
-		return true;
-	}
-	
-	public static boolean approveAllRequests(String requestId) {
-		return true;
-	}
 
+
+public interface AdminGMSInterface {
+	
+
+	
+	public void seePendingRequest();
+
+	public  boolean approveRequest(String requestId);
+
+	public  boolean approveAllRequests();
 }
