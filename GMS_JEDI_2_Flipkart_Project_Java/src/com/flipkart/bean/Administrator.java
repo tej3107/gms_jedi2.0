@@ -10,6 +10,7 @@ public class Administrator {
 	private String adminId;
 	private String name;
 	private String mobile;
+	private String email;
 	
 	
 	public String getAdminId() {
