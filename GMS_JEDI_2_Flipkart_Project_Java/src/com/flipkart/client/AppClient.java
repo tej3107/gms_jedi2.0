@@ -3,6 +3,7 @@
  */
 package com.flipkart.client;
 
+
 import java.util.*;
 
 import com.flipkart.bean.*;
@@ -16,6 +17,9 @@ public class AppClient {
 	/**
 	 * @param args
 	 */
+	public static AdminGMSInterface admin = new AdminService();
+//	private  AdminGMSInterface admin ;
+//	admin = new AdminService();
 
 	public static void LoginMenu(Scanner in) {
 		System.out.println("Welcome to FlipFit Gymnasium Application");
@@ -25,7 +29,7 @@ public class AppClient {
 		String username = in.next();
 		System.out.print("Password: ");
 		String password = in.next();
-		System.out.print("Select Role:-\n1.Admin\n2.Customer\n3.Gym Onwer ");
+		System.out.print("Select Role:-\n1.AdminActionPage (Flipkart) \n2.CustomerActionPage \n3.GymOwnerActionPage \n4. Logout");
 		int role = in.nextInt();
 		User user = new User(username,password,role);
 		UserService authentication = new UserService();
@@ -156,16 +160,21 @@ public class AppClient {
 	public static void AdminActionPage(Scanner in) {
 		System.out.println("Welcome to FlipFit Gymnasium Application");
 		System.out.println("Menu:-");
-		System.out.println("1.View Approval list \n2.Exit");
+		System.out.println("1.View Approval list \n2.Approve Request \n3.ApproveAllRequests");
 		System.out.print("Enter your choice: ");
 		int choice = in.nextInt();
+		
+		
 		switch (choice) {
 		// Case statements
 		case 1:
-			Viewapprovals(in);
+			admin.seePendingRequest();
 			break;
 		case 2:
-			System.exit(0);
+			admin.approveRequest(in.next());
+			break;
+		case 3:
+			admin.approveAllRequests();
 			break;
 		// Default case statement
 		default:
