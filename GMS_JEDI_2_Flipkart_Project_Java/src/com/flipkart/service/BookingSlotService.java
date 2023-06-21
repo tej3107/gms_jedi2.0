@@ -7,7 +7,7 @@ import com.flipkart.bean.*;
 /**
  * 
  */
-public class BookingSlotService {
+public class BookingSlotService implements BookingSlotGMSInterface{
 	public boolean checkAvailability(Slots slot) {
 		return true;
 	}

@@ -7,7 +7,7 @@ import com.flipkart.bean.*;
 /**
  * 
  */
-public class UserService {
+public class UserService implements UserGMSInterface{
 	public boolean registerCustomer(Registration customerData) {
 		return true;
 	}
