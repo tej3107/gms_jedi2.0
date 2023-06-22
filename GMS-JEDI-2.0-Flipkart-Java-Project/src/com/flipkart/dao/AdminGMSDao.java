@@ -7,6 +7,8 @@
  */
 package com.flipkart.dao;
 
+import java.util.ArrayList;
+
 import com.flipkart.bean.Registration;
 
 /**
@@ -14,9 +16,9 @@ import com.flipkart.bean.Registration;
  */
 public interface AdminGMSDao {
 	
-	public Registration[] getGymPendingRequest();
-	public Registration[] getGymOwnerPendingRequest();
-	public void changeGymOwnerStatus(String id,int status);
-	public void changeGymStatus(String id,int status);
+	public ArrayList<Registration> getGymPendingRequest();
+	public ArrayList<Registration> getGymOwnerPendingRequest();
+	public void changeGymOwnerStatus(int id,int status);
+	public void changeGymStatus(int id,int status);
 	
 }
