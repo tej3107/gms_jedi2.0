@@ -25,7 +25,7 @@ public class AdminGMSService implements AdminGMSInterface {
 		
 		
 		System.out.println("List of pending Gym registration :- ");
-		Registration[] pendingRegistration  =  admin_gms_dao.getGymPendingRequest();
+		ArrayList<Registration> pendingRegistration  =  admin_gms_dao.getGymPendingRequest();
 		
 		for(Registration val : pendingRegistration) {
 			
@@ -40,7 +40,7 @@ public class AdminGMSService implements AdminGMSInterface {
 		
 		
 		System.out.println("List of pending registration :- ");
-		Registration[] pendingRegistration  =  admin_gms_dao.getGymOwnerPendingRequest();
+		ArrayList<Registration> pendingRegistration  =  admin_gms_dao.getGymOwnerPendingRequest();
 		
 		for(Registration val : pendingRegistration) {
 			
@@ -51,7 +51,7 @@ public class AdminGMSService implements AdminGMSInterface {
 		
 	}
 	
-	public boolean approveGymRequest(String requestId) {
+	public boolean approveGymRequest(int requestId) {
 
 		admin_gms_dao.changeGymStatus(requestId,1);	
 		System.out.println("The Gym  has been approved.");
@@ -59,7 +59,7 @@ public class AdminGMSService implements AdminGMSInterface {
 	}
 	
 	
-	public boolean approveGymOwnerRequest(String requestId) {
+	public boolean approveGymOwnerRequest(int requestId) {
 
 		admin_gms_dao.changeGymOwnerStatus(requestId,1);
 		
