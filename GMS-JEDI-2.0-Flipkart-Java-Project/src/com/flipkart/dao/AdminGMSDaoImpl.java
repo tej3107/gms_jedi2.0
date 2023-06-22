@@ -5,11 +5,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.flipkart.bean.Registration;
+
 public class AdminGMSDaoImpl{
 	
-	public static void main(String[] args) {
-		getGymPendingRequest();
-	}
+//	public static void main(String[] args) {
+//		getGymPendingRequest();
+//	}
 	
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	   static final String DB_URL = "jdbc:mysql://localhost/test";
@@ -39,7 +41,7 @@ public class AdminGMSDaoImpl{
 		      System.out.println("Rows impacted : " + rows );
 
 		      // Let us select all the records and display them.
-		      sql = "SELECT id, name ,email FROM gymOwner WHERE approved=0";
+		      String sql = "SELECT id, name ,email FROM gymOwner WHERE approved=0";
 		      ResultSet rs = stmt.executeQuery(sql);
 
 		      //STEP 5: Extract data from result set
