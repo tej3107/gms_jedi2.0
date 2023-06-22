@@ -9,8 +9,7 @@ import com.flipkart.bean.Registration;
 
 public class AdminGMSDaoImpl implements AdminGMSDao{
 	
-<<<<<<< HEAD
-=======
+
 //	public static void main(String[] args) {
 //		getGymPendingRequest();
 //	}
@@ -108,7 +107,7 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 		      System.out.println("Rows impacted : " + rows );
 
 		      // Let us select all the records and display them.
-		      sql = "SELECT id, name ,address, location FROM employeefc";
+		      sql = "SELECT id, name ,address, location FROM employee";
 		      ResultSet rs = stmt.executeQuery(sql);
 
 		      //STEP 5: Extract data from result set
@@ -331,10 +330,7 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 					      }//end finally try
 					   }//end try
 					   System.out.println("Goodbye!");
+					   
 	}
 	
-	
-	
-	
->>>>>>> b5076dc0cef37724db6b180bf858dd53b7d87273
 }

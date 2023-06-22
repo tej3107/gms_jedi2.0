@@ -26,7 +26,8 @@ public class AdminGMSService implements AdminGMSInterface {
 
 	List<Registration> approved  = new ArrayList<>(Arrays.asList());
 	
-	public void seeGymPendingRequest() {
+	
+	public void viewGymPendingRequest() {
 		
 		
 		
@@ -39,36 +40,19 @@ public class AdminGMSService implements AdminGMSInterface {
 			
 		}
 		
-		
 	}
 	
-<<<<<<< HEAD
-	public boolean approveRequest(String requestId) {
 
-		for (int i = 0; i < pendingRegistration.size(); i++) {
-			
-			Registration register = pendingRegistration.get(i);
-		    if (register.getUserName().equals(requestId)) {
-		    	
-		    	approved.add(register);
-		    	
-		    	pendingRegistration.remove(i);
-		    	System.out.println("Registration with request id " + requestId + " is approved ");
-		    	break;
-		    	
-		    }
-=======
-	public void seeGymOwnerPendingRequest() {
-		
+	public void viewGymOwnerPendingRequest() {
 		
 		
 		System.out.println("List of pending registration :- ");
 		Registration[] pendingRegistration  =  admin_gms_dao.getGymOwnerPendingRequest();
+		
 		for(Registration val : pendingRegistration) {
 			
 			System.out.println(val.getName()+" - regid: "+val.getUserName());
 			
->>>>>>> b5076dc0cef37724db6b180bf858dd53b7d87273
 		}
 		
 		
@@ -90,10 +74,9 @@ public class AdminGMSService implements AdminGMSInterface {
 		return true;
 	}
 	
+	
 	public boolean approveAllGymRequests() {
 		
-		
-		//	to do
 		
 		
 		return true;
@@ -101,8 +84,6 @@ public class AdminGMSService implements AdminGMSInterface {
 	
 	public boolean approveAllGymOwnerRequests() {
 		
-		
-//		to do
 		
 		
 		return true;

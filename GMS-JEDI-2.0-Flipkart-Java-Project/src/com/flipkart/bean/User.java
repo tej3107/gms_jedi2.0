@@ -12,7 +12,6 @@ public class User {
 	private String password;
 	private int roleId;
 	
-	
 	public User (String userName,String password,int roleId) {
 		this.userName=userName;
 		this.password=password;
