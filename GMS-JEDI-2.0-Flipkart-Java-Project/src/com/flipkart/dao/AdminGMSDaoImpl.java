@@ -1,29 +1,52 @@
-//package com.flipkart.dao;
+package com.flipkart.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.flipkart.bean.Registration;
+import com.mysql.cj.xdevapi.Statement;
+
+import java.sql.ResultSet;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AdminGMSDaoImpl implements AdminGMSDao{
 	
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 
+>>>>>>> 781d41a2f0c10c20cdd2d0edc0eccdc208f97352
 //	public static void main(String[] args) {
 //		getGymPendingRequest();
 //	}
+>>>>>>> 5c21cdd9b6bf65ba9ed70a73677c0de37025cf69
 	
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	   static final String DB_URL = "jdbc:mysql://localhost/test";
+	   static final String DB_URL = "jdbc:mysql://localhost/GMS_DB";
 
 	   //  Database credentials
 	   static final String USER = "root";
 	   static final String PASS = "Tej@1234";
 	
-	public Registration[] getGymPendingRequest() {
+//	public Registration[] getGymPendingRequest() {
+   public ArrayList<Registration> getGymPendingRequest() {
 		Connection conn = null;
+<<<<<<< HEAD
+	   PreparedStatement stmt = null;
+	   ArrayList<Registration> reqList = new ArrayList<>();
+=======
 		PreparedStatement stmt = null;
+>>>>>>> 5c21cdd9b6bf65ba9ed70a73677c0de37025cf69
 	   
 	   try{
 		   
@@ -38,30 +61,43 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 		   
 		   
 		   // Let us update age of the record with ID = 102;
-		      int rows = stmt.executeUpdate();
-		      System.out.println("Rows impacted : " + rows );
+//		      int rows = stmt.executeUpdate();
+//		      System.out.println("Rows impacted : " + rows );
 
 		      // Let us select all the records and display them.
-		      String sql = "SELECT id, name ,email FROM gymOwner WHERE approved=0";
-		      ResultSet rs = stmt.executeQuery(sql);
+		      PreparedStatement statement = conn.prepareStatement("SELECT id, name FROM gym WHERE approved=?");
+		      statement.setInt(1, 0);
+//		      String sql = "SELECT id, name ,email FROM gymOwner WHERE approved=?";
+		      
+		      
+		      ResultSet rs = statement.executeQuery();
 
 		      //STEP 5: Extract data from result set
 		      while(rs.next()){
 		         //Retrieve by column name
 		         int eid  = rs.getInt("id");
 		         String name1 = rs.getString("name");
-		         String address1 = rs.getString("email");
+//		         String address1 = rs.getString("email");
+		         
+		         
+		         Registration reg = new Registration();
+		         reg.setName(name1);
+//		         reg.setEmail(address1);
+		         reg.setRegId(eid);
+		         
+		         reqList.add(reg);
 //		         String location1 = rs.getString("location");
 
 		         //Display values
 		         System.out.print("ID: " + eid);
 		         System.out.print(", Age: " + name1);
-		         System.out.print(", First: " + address1);
+//		         System.out.print(", First: " + address1);
+		         System.out.println("\n");
 //		         System.out.println(", Last: " + location1);
 		      }
 		      //STEP 6: Clean-up environment
 		     // rs.close();
-		      stmt.close();
+		      statement.close();
 		      conn.close();
 		   }catch(SQLException se){
 		      //Handle errors for JDBC
@@ -84,71 +120,95 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 		      }//end finally try
 		   }//end try
 		   System.out.println("Goodbye!");
+		   
+		   return reqList;
 	}
 	
-	public Registration[] getGymOwnerPendingRequest() {
+	public ArrayList<Registration> getGymOwnerPendingRequest() {
 		Connection conn = null;
-	   PreparedStatement stmt = null;
-	   
-	   try{
+		   PreparedStatement stmt = null;
+		   ArrayList<Registration> reqList = new ArrayList<>();
 		   
-		   // Step 3 Regiater Driver here and create connection 
-		   
-		   Class.forName("com.mysql.jdbc.Driver");
+		   try{
+			   
+			   // Step 3 Regiater Driver here and create connection 
+			   
+			   Class.forName("com.mysql.jdbc.Driver");
 
-		   // Step 4 make/open  a connection 
-		   
-		      System.out.println("Connecting to database...");
-		      conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		   
-		   
-		   // Let us update age of the record with ID = 102;
-		      int rows = stmt.executeUpdate();
-		      System.out.println("Rows impacted : " + rows );
+			   // Step 4 make/open  a connection 
+			   
+			      System.out.println("Connecting to database...");
+			      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+			   
+			   
+			   // Let us update age of the record with ID = 102;
+//			      int rows = stmt.executeUpdate();
+//			      System.out.println("Rows impacted : " + rows );
 
+<<<<<<< HEAD
+			      // Let us select all the records and display them.
+			      PreparedStatement statement = conn.prepareStatement("SELECT id, name ,email FROM gymOwner WHERE approved=?");
+			      statement.setInt(1, 0);
+//			      String sql = "SELECT id, name ,email FROM gymOwner WHERE approved=?";
+			      
+			      
+			      ResultSet rs = statement.executeQuery();
+=======
 		      // Let us select all the records and display them.
-		      sql = "SELECT id, name ,address, location FROM employee";
+		      sql = "SELECT id, name ,address, location FROM employeefc";
 		      ResultSet rs = stmt.executeQuery(sql);
+>>>>>>> 5c21cdd9b6bf65ba9ed70a73677c0de37025cf69
 
-		      //STEP 5: Extract data from result set
-		      while(rs.next()){
-		         //Retrieve by column name
-		         int eid  = rs.getInt("id");
-		         String name1 = rs.getString("name");
-		         String address1 = rs.getString("address");
-		         String location1 = rs.getString("location");
+			      //STEP 5: Extract data from result set
+			      while(rs.next()){
+			         //Retrieve by column name
+			         int eid  = rs.getInt("id");
+			         String name1 = rs.getString("name");
+			         String address1 = rs.getString("email");
+			         
+			         
+			         Registration reg = new Registration();
+			         reg.setName(name1);
+			         reg.setEmail(address1);
+			         reg.setRegId(eid);
+			         
+			         reqList.add(reg);
+//			         String location1 = rs.getString("location");
 
-		         //Display values
-		         System.out.print("ID: " + eid);
-		         System.out.print(", Age: " + name1);
-		         System.out.print(", First: " + address1);
-		         System.out.println(", Last: " + location1);
-		      }
-		      //STEP 6: Clean-up environment
-		     // rs.close();
-		      stmt.close();
-		      conn.close();
-		   }catch(SQLException se){
-		      //Handle errors for JDBC
-		      se.printStackTrace();
-		   }catch(Exception e){
-		      //Handle errors for Class.forName
-		      e.printStackTrace();
-		   }finally{
-		      //finally block used to close resources
-		      try{
-		         if(stmt!=null)
-		            stmt.close();
-		      }catch(SQLException se2){
-		      }// nothing we can do
-		      try{
-		         if(conn!=null)
-		            conn.close();
-		      }catch(SQLException se){
-		         se.printStackTrace();
-		      }//end finally try
-		   }//end try
-		   System.out.println("Goodbye!");
+			         //Display values
+			         System.out.print("ID: " + eid);
+			         System.out.print(", Age: " + name1);
+			         System.out.print(", First: " + address1);
+			         System.out.println("\n");
+//			         System.out.println(", Last: " + location1);
+			      }
+			      //STEP 6: Clean-up environment
+			     // rs.close();
+			      statement.close();
+			      conn.close();
+			   }catch(SQLException se){
+			      //Handle errors for JDBC
+			      se.printStackTrace();
+			   }catch(Exception e){
+			      //Handle errors for Class.forName
+			      e.printStackTrace();
+			   }finally{
+			      //finally block used to close resources
+			      try{
+			         if(stmt!=null)
+			            stmt.close();
+			      }catch(SQLException se2){
+			      }// nothing we can do
+			      try{
+			         if(conn!=null)
+			            conn.close();
+			      }catch(SQLException se){
+			         se.printStackTrace();
+			      }//end finally try
+			   }//end try
+			   System.out.println("Goodbye!");
+			   
+			   return reqList;
 	}
 	
 	
@@ -156,7 +216,8 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 		// Step 2 
 				// Declare the Coneection or prepaidstatement variable here 
 				   Connection conn = null;
-				   PreparedStatement stmt = null;
+				   PreparedStatement preparedStatement = null;
+//				   java.sql.Statement statement = null;
 				   
 				   try{
 					   
@@ -171,53 +232,21 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 					   
 					      //STEP 4: Execute a query
 					      System.out.println("Creating statement...");
-					      String sql="insert into employee values(?,?,?,?)";
-					      //String sql = "UPDATE Employees set age=? WHERE id=?";
-					     // String sql1="delete from employee where id=?";
-					     // stmt.setInt(1, 101);
-					      stmt = conn.prepareStatement(sql);
-					   
-					      // Hard coded data 
 					      
-					      int id=640;
-					      String name="Vabhav";
-					      String address="Delhi";
-					      String location="India";
-					      //Bind values into the parameters.
-					      stmt.setInt(1, id);  // This would set age
-					      stmt.setString(2,name);
-					      stmt.setString(3, address);
-					      stmt.setString(4, location);
-					      stmt.executeUpdate();
-					           
-					   
-					   /*
-					   
-					   // Let us update age of the record with ID = 102;
-					      int rows = stmt.executeUpdate();
-					      System.out.println("Rows impacted : " + rows );
+					      String updateQuery = "UPDATE gymOwner SET approved = ? WHERE id = ?";
+			            preparedStatement = conn.prepareStatement(updateQuery);
 
-					      // Let us select all the records and display them.
-					      sql = "SELECT id, name ,address, location FROM employeefc";
-					      ResultSet rs = stmt.executeQuery(sql);
+			            // Set the values at specific positions
+//			            if(status==0) 
+			            preparedStatement.setInt(1, status);  // Set value for the first question mark (?)
+//			            else preparedStatement.setInt(1, 0);
+			            preparedStatement.setInt(2, id);  // Set value for the second question mark (?)
 
-					      //STEP 5: Extract data from result set
-					      while(rs.next()){
-					         //Retrieve by column name
-					         int eid  = rs.getInt("id");
-					         String name1 = rs.getString("name");
-					         String address1 = rs.getString("address");
-					         String location1 = rs.getString("location");
-
-					         //Display values
-					         System.out.print("ID: " + eid);
-					         System.out.print(", Age: " + name1);
-					         System.out.print(", First: " + address1);
-					         System.out.println(", Last: " + location1);
-					      }*/
-					      //STEP 6: Clean-up environment
-					     // rs.close();
-					      stmt.close();
+			            // Execute the update query
+			            int rowsAffected = preparedStatement.executeUpdate();
+					      
+					      
+			            preparedStatement.close();
 					      conn.close();
 					   }catch(SQLException se){
 					      //Handle errors for JDBC
@@ -228,8 +257,8 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 					   }finally{
 					      //finally block used to close resources
 					      try{
-					         if(stmt!=null)
-					            stmt.close();
+					         if(preparedStatement!=null)
+					        	 preparedStatement.close();
 					      }catch(SQLException se2){
 					      }// nothing we can do
 					      try{
@@ -244,53 +273,64 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 	
 	public void changeGymStatus(String id,int status) {
 		// Step 2 
-				// Declare the Coneection or prepaidstatement variable here 
-				   Connection conn = null;
-				   PreparedStatement stmt = null;
-				   
-				   try{
-					   
-					   // Step 3 Regiater Driver here and create connection 
-					   
-					   Class.forName("com.mysql.jdbc.Driver");
+		// Declare the Coneection or prepaidstatement variable here 
+		   Connection conn = null;
+		   PreparedStatement preparedStatement = null;
+//		   java.sql.Statement statement = null;
+		   
+		   try{
+			   
+			   // Step 3 Regiater Driver here and create connection 
+			   
+			   Class.forName("com.mysql.jdbc.Driver");
 
-					   // Step 4 make/open  a connection 
-					   
-					      System.out.println("Connecting to database...");
-					      conn = DriverManager.getConnection(DB_URL,USER,PASS);
-					   
-					      //STEP 4: Execute a query
-					      System.out.println("Creating statement...");
-					      String sql="insert into employee values(?,?,?,?)";
-					      //String sql = "UPDATE Employees set age=? WHERE id=?";
-					     // String sql1="delete from employee where id=?";
-					     // stmt.setInt(1, 101);
-					      stmt = conn.prepareStatement(sql);
-					   
-					      // Hard coded data 
-					      
-					      int id=640;
-					      String name="Vabhav";
-					      String address="Delhi";
-					      String location="India";
-					      //Bind values into the parameters.
-					      stmt.setInt(1, id);  // This would set age
-					      stmt.setString(2,name);
-					      stmt.setString(3, address);
-					      stmt.setString(4, location);
-					      stmt.executeUpdate();
-					           
-					   
-					   /*
-					   
-					   // Let us update age of the record with ID = 102;
-					      int rows = stmt.executeUpdate();
-					      System.out.println("Rows impacted : " + rows );
+			   // Step 4 make/open  a connection 
+			   
+			      System.out.println("Connecting to database...");
+			      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+			   
+			      //STEP 4: Execute a query
+			      System.out.println("Creating statement...");
+			      
+			      String updateQuery = "UPDATE gym SET approved = ? WHERE id = ?";
+	            preparedStatement = conn.prepareStatement(updateQuery);
 
-					      // Let us select all the records and display them.
-					      sql = "SELECT id, name ,address, location FROM employeefc";
-					      ResultSet rs = stmt.executeQuery(sql);
+	            // Set the values at specific positions
+	            preparedStatement.setInt(1, status);  // Set value for the first question mark (?)
+//	            preparedStatement.setInt(1, 0);
+	            preparedStatement.setInt(2, id);  // Set value for the second question mark (?)
 
+<<<<<<< HEAD
+	            // Execute the update query
+	            int rowsAffected = preparedStatement.executeUpdate();
+			      
+	            preparedStatement.close();
+			      conn.close();
+			   }catch(SQLException se){
+			      //Handle errors for JDBC
+			      se.printStackTrace();
+			   }catch(Exception e){
+			      //Handle errors for Class.forName
+			      e.printStackTrace();
+			   }finally{
+			      //finally block used to close resources
+			      try{
+			         if(preparedStatement!=null)
+			        	 preparedStatement.close();
+			      }catch(SQLException se2){
+			      }// nothing we can do
+			      try{
+			         if(conn!=null)
+			            conn.close();
+			      }catch(SQLException se){
+			         se.printStackTrace();
+			      }//end finally try
+			   }//end try
+			   System.out.println("Goodbye!");
+	}
+	
+	
+=======
 					      //STEP 5: Extract data from result set
 					      while(rs.next()){
 					         //Retrieve by column name
@@ -330,7 +370,13 @@ public class AdminGMSDaoImpl implements AdminGMSDao{
 					      }//end finally try
 					   }//end try
 					   System.out.println("Goodbye!");
-					   
 	}
 	
+<<<<<<< HEAD
+	
+	
+	
+=======
+>>>>>>> 5c21cdd9b6bf65ba9ed70a73677c0de37025cf69
+>>>>>>> 781d41a2f0c10c20cdd2d0edc0eccdc208f97352
 }
