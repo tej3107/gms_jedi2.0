@@ -12,7 +12,7 @@ public interface AdminGMSInterface {
 	public void viewGymOwnerPendingRequest();
 	public  boolean approveAllGymOwnerRequests();
 	public  boolean approveAllGymRequests();
-	public  boolean approveGymRequest(String requestId);
-	public  boolean approveGymOwnerRequest(String requestId);
+	public  boolean approveGymRequest(int requestId);
+	public  boolean approveGymOwnerRequest(int requestId);
 	
 }
