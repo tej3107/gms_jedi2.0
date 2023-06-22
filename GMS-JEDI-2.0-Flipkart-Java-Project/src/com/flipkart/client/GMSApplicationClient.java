@@ -6,6 +6,7 @@ import com.flipkart.bean.*;
 import java.util.*;
 
 import com.flipkart.bean.User;
+import com.flipkart.dao.AdminGMSDaoImpl;
 import com.flipkart.service.UserGMSService;
 
 /**
@@ -55,6 +56,12 @@ public class GMSApplicationClient {
 	
 	
 	public static void main(String[] args) {
+		
+		AdminGMSDaoImpl adm = new AdminGMSDaoImpl();
+		adm.getGymPendingRequest();
+		adm.changeGymStatus(3,1);
+		adm.getGymPendingRequest();
+		
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to FlipFit Gymnasium Application");
 		System.out.println("Menu:");

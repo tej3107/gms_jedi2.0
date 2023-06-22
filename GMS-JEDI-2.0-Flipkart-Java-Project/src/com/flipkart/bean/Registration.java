@@ -9,6 +9,8 @@ import java.time.LocalDate;
  * 
  */
 public class Registration {
+	
+	private int regId;
 	private String UserName;
 	private String name;
 	private String mobile;
@@ -23,10 +25,15 @@ public class Registration {
 	
 	private int roleId;
 	
-	public Registration()
-	{
-		
+	public int getRegId() {
+		return regId;
 	}
+
+	public void setRegId(int regId) {
+		this.regId = regId;
+	}
+
+	public Registration(){}
 	
 	public Registration(String UserName, String name, int roleId, String password) {
 		super();
