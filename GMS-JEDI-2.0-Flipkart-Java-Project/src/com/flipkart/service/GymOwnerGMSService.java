@@ -10,8 +10,9 @@ import java.util.List;
  * 
  */
 public class GymOwnerGMSService implements GymOwnerGMSInterface{
+	
 	List<GymOwner> gymOwners = new ArrayList<GymOwner>();
-	List<Gymnasium> gymnasiums = new ArrayList<Gymnasium>();;
+	List<Gymnasium> gymnasiums = new ArrayList<Gymnasium>();
 	
 	public GymOwner fetchOwnerDetails(String gymOwnerUserName) {
 		GymOwner gymOwnerDetails = null;
@@ -22,6 +23,8 @@ public class GymOwnerGMSService implements GymOwnerGMSInterface{
 		}
 		return gymOwnerDetails;
 	}
+	
+	
 	
 	public void addGymOwnerDetails(GymOwner gymOwnerDetails) {
 		gymOwners.add(gymOwnerDetails);
@@ -36,6 +39,9 @@ public class GymOwnerGMSService implements GymOwnerGMSInterface{
 		}
 		return gymnasiumDetails;
 	}
+	
+	
+	
 	
 	public void addGymDetails(Gymnasium gymDetails) {
 		gymnasiums.add(gymDetails);

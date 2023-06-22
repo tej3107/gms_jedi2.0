@@ -7,10 +7,10 @@ package com.flipkart.bean;
  * 
  */
 public class User {
+	private int userId;
 	private String userName;
 	private String password;
 	private int roleId;
-	
 	
 	public User (String userName,String password,int roleId) {
 		this.userName=userName;
@@ -18,6 +18,14 @@ public class User {
 		this.roleId=roleId;
 	}
 	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	public String getUserName() {
 		return userName;
 	}

@@ -7,6 +7,15 @@ package com.flipkart.bean;
  * 
  */
 public class Gymnasium {
+	/**
+	 * @param gymId
+	 * @param name
+	 */
+	public Gymnasium(String gymId, String name) {
+		super();
+		this.gymId = gymId;
+		this.name = name;
+	}
 	private String gymId;
 	private String ownerUserName;
 	

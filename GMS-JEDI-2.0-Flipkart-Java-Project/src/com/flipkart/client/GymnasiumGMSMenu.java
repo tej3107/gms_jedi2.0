@@ -1,8 +1,9 @@
 package com.flipkart.client;
-
-import java.util.List;
-import java.util.Scanner;
 import com.flipkart.bean.*;
+import java.util.List;
+
+import java.util.Scanner;
+
 import com.flipkart.service.GymOwnerGMSService;
 import com.flipkart.service.UserGMSService;
 
@@ -71,7 +72,7 @@ public class GymnasiumGMSMenu {
 	
 
 	public void GymRegistration(Scanner in) {
-		Gymnasium gymDetails = new Gymnasium(); 
+		Gymnasium gymDetails = new Gymnasium("s","2"); 
 		System.out.println("Add gym Details:-");
 		System.out.print("Add gymnasium name: ");
 		gymDetails.setName(in.next());
