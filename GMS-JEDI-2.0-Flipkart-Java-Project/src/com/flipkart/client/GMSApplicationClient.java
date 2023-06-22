@@ -18,7 +18,6 @@ public class GMSApplicationClient {
 	 * 
 	 */
 	
-	
 	public static void login()
 	{
 		Scanner in = new Scanner(System.in);

@@ -4,20 +4,40 @@
 package com.flipkart.bean;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
  */
 
 public class Slots {
+	
 	private String slotId;
 	private String gymId;
-
 	private int capacity;
 	private LocalDate date;
 	private LocalTime time;
+    private int availabe;
+    
+    private List<Integer> bookedUserIds = new ArrayList<Integer>(); // To be made ArrayList
+    // List<Object> anyObject = new ArrayList<Object>();
 	
-	private String guestUserName[]; // To be made ArrayList
+	public List<Integer> getBookedUserIds() {
+		return bookedUserIds;
+	}
+
+	public void setBookedUserIds(List<Integer> bookedUserIds) {
+		this.bookedUserIds = bookedUserIds;
+	}
+
+	public int getAvailabe() {
+		return availabe;
+	}
+
+	public void setAvailabe(int availabe) {
+		this.availabe = availabe;
+	}
 	
 	
 	public String getSlotId() {

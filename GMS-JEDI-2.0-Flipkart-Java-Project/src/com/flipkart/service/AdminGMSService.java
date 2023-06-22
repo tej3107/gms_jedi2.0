@@ -41,6 +41,7 @@ public class AdminGMSService implements AdminGMSInterface {
 	public boolean approveRequest(String requestId) {
 
 		for (int i = 0; i < pendingRegistration.size(); i++) {
+			
 			Registration register = pendingRegistration.get(i);
 		    if (register.getUserName().equals(requestId)) {
 		    	

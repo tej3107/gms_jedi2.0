@@ -14,13 +14,8 @@ import com.flipkart.bean.*;
 /**
  * 
  */
-public class UserGMSService {
-//	User user1 = new User("Ayush", "psw1", 3);
-//	User user2 = new User("Naman", "psw2", 3);
-//	User user3 = new User("Rahul", "psw3", 3);
-//	List<User> userList = new ArrayList<>(Arrays.asList(user1, user2, user3));
-//	List<Registration> registrationInfo = new ArrayList<Registration>();
-////	List<User> userList = new ArrayList<User>();
+public class UserGMSService implements UserGMSInterface {
+	
 	
 	UserGMSDao userGMSDao;
 	public void registerCustomer(Registration customerData) {
@@ -43,4 +38,5 @@ public class UserGMSService {
 	public boolean logout(User userData) {
 		return true;
 	}
+	
 }
