@@ -2,6 +2,7 @@
  * 
  */
 package com.flipkart.client;
+import com.flipkart.bean.*;
 import java.util.*;
 
 import com.flipkart.bean.User;
