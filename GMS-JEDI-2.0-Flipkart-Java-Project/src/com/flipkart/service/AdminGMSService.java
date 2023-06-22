@@ -18,13 +18,6 @@ public class AdminGMSService implements AdminGMSInterface {
 	AdminGMSDao admin_gms_dao = new AdminGMSDaoImpl();
 	
 	
-	Registration register1 = new Registration("abc1", "abc", 1, "abc");
-	Registration register2 = new Registration("abc2", "abc", 1, "abc");
-	Registration register3 = new Registration("abc3", "abc", 1, "abc");
-							
-	List<Registration> pendingRegistration  = new ArrayList<>(Arrays.asList(register1,register2,register3));
-
-	List<Registration> approved  = new ArrayList<>(Arrays.asList());
 	
 	
 	public void viewGymPendingRequest() {

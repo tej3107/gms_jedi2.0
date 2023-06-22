@@ -10,10 +10,8 @@ import java.util.*;
  * 
  */
 
-<<<<<<< HEAD
-=======
 
->>>>>>> ec5d09ba89b3f9fcb5d0b4bb7ee237f98bd67c12
+
 public class CustomerGMSService implements CustomerGMSInterface { 
 	
 	Gymnasium gym1 = new Gymnasium("A1","Lokesh");
