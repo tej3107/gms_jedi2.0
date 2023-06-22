@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import com.flipkart.bean.Registration;
 
-public class AdminGMSDaoImpl{
+public class AdminGMSDaoImpl implements AdminGMSDao{
 	
 //	public static void main(String[] args) {
 //		getGymPendingRequest();
@@ -22,7 +22,7 @@ public class AdminGMSDaoImpl{
 	
 	public Registration[] getGymPendingRequest() {
 		Connection conn = null;
-	   PreparedStatement stmt = null;
+		PreparedStatement stmt = null;
 	   
 	   try{
 		   
@@ -241,7 +241,7 @@ public class AdminGMSDaoImpl{
 					   System.out.println("Goodbye!");
 	}
 	
-	public void changeGymStatus(int id,int status) {
+	public void changeGymStatus(String id,int status) {
 		// Step 2 
 				// Declare the Coneection or prepaidstatement variable here 
 				   Connection conn = null;

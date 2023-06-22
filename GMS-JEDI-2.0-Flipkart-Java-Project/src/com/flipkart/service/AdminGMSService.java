@@ -4,6 +4,7 @@
 package com.flipkart.service;
 
 import com.flipkart.bean.*;
+import com.flipkart.dao.*;
 
 import java.util.*;
 
@@ -14,6 +15,7 @@ public class AdminGMSService implements AdminGMSInterface {
 	
 	User user2 = new User("Tej", "s123", 1);
 	User user3 = new User("Lokesh", "s123", 1);
+	AdminGMSDao admin_gms_dao = new AdminGMSDaoImpl();
 	
 	
 	Registration register1 = new Registration("abc1", "abc", 1, "abc");
@@ -29,6 +31,8 @@ public class AdminGMSService implements AdminGMSInterface {
 		
 		
 		System.out.println("List of pending Gym registration :- ");
+		Registration[] pendingRegistration  =  admin_gms_dao.getGymPendingRequest();
+		
 		for(Registration val : pendingRegistration) {
 			
 			System.out.println(val.getName()+" - regid: "+val.getUserName());
@@ -43,6 +47,7 @@ public class AdminGMSService implements AdminGMSInterface {
 		
 		
 		System.out.println("List of pending registration :- ");
+		Registration[] pendingRegistration  =  admin_gms_dao.getGymOwnerPendingRequest();
 		for(Registration val : pendingRegistration) {
 			
 			System.out.println(val.getName()+" - regid: "+val.getUserName());
@@ -54,21 +59,7 @@ public class AdminGMSService implements AdminGMSInterface {
 	
 	public boolean approveGymRequest(String requestId) {
 
-		for (int i = 0; i < pendingRegistration.size(); i++) {
-			Registration register = pendingRegistration.get(i);
-		    if (register.getUserName().equals(requestId)) {
-		    	
-		    	approved.add(register);
-		    	
-		    	pendingRegistration.remove(i);
-		    	System.out.println("Registration with request id " + requestId + " is approved ");
-		    	break;
-		    	
-		    }
-		}
-		
-	
-		
+		admin_gms_dao.changeGymStatus(requestId,1);	
 		System.out.println("The Gym  has been approved.");
 		return true;
 	}
@@ -76,20 +67,7 @@ public class AdminGMSService implements AdminGMSInterface {
 	
 	public boolean approveGymOwnerRequest(String requestId) {
 
-		for (int i = 0; i < pendingRegistration.size(); i++) {
-			Registration register = pendingRegistration.get(i);
-		    if (register.getUserName().equals(requestId)) {
-		    	
-		    	approved.add(register);
-		    	
-		    	pendingRegistration.remove(i);
-		    	System.out.println("Registration with request id " + requestId + " is approved ");
-		    	break;
-		    	
-		    }
-		}
-		
-	
+		admin_gms_dao.changeGymOwnerStatus(requestId,1);
 		
 		System.out.println("The Gym owner has been approved.");
 		return true;
@@ -98,14 +76,7 @@ public class AdminGMSService implements AdminGMSInterface {
 	public boolean approveAllGymRequests() {
 		
 		
-		for (int i = 0; i < pendingRegistration.size(); i++) {
-			Registration register = pendingRegistration.get(i);
-		   	
-		    approved.add(register);
-		 }
-		
-		pendingRegistration.clear();
-		
+		//	to do
 		
 		
 		return true;
@@ -114,14 +85,7 @@ public class AdminGMSService implements AdminGMSInterface {
 	public boolean approveAllGymOwnerRequests() {
 		
 		
-		for (int i = 0; i < pendingRegistration.size(); i++) {
-			Registration register = pendingRegistration.get(i);
-		   	
-		    approved.add(register);
-		 }
-		
-		pendingRegistration.clear();
-		
+//		to do
 		
 		
 		return true;
