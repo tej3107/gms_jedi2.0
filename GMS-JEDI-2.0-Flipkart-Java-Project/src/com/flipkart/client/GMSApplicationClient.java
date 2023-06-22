@@ -80,6 +80,8 @@ public class GMSApplicationClient {
 			Owner.GymOwnerRegistration(in);
 			break;
 		case 4:
+			System.out.println("Enter your username");
+			String username = in.next();
 			System.out.println("Enter your current password");
 			String currPassword = in.next();
 			System.out.println("Enter your new password");

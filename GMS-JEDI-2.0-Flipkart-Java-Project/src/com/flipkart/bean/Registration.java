@@ -19,8 +19,23 @@ public class Registration {
 	private String aadhaarNumber;
 	private String panNumber;
 	private String gstNumber;
+	private String password;
 	
 	private int roleId;
+	
+	public Registration()
+	{
+		
+	}
+	
+	public Registration(String UserName, String name, int roleId, String password) {
+		super();
+		this.UserName = UserName;
+		this.name = name;
+		this.roleId = roleId;
+		this.password = password;
+	}
+
 	
 	public String getUserName() {
 		return UserName;
@@ -101,5 +116,13 @@ public class Registration {
 
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
